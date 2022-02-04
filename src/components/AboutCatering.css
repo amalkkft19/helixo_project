@@ -1,0 +1,53 @@
+/****************************************
+*******container ***********************
+*************************************/
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  column-gap: 50px;
+}
+
+/*************************
+*****image**************
+**********************/
+
+.img_catering {
+  height: 350px;
+}
+
+/******************************
+********text****************
+************************/
+h1 {
+  font-family: "Source Serif 4", sans-serif;
+  letter-spacing: 1.3px;
+  color: rgb(20, 20, 20);
+  font-size: 25px;
+}
+h4 {
+  font-family: "EB Garamond", serif;
+  letter-spacing: 1.1px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+p {
+  font-family: "Source Serif 4", sans-serif;
+  font-size: 12px;
+}
+
+.text_container {
+  max-width: 425px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  row-gap: 10px;
+}
+
+.para_two {
+  color: #424242;
+}

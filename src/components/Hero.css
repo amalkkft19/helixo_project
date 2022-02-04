@@ -1,0 +1,19 @@
+.hero_img {
+  display: flex;
+
+  height: 500px;
+  position: relative;
+  justify-content: center;
+  z-index: -1;
+}
+.hero_img img {
+  width: 1200px;
+}
+.hero_text {
+  color: rgb(87, 71, 71);
+  bottom: 25px;
+  left: 250px;
+  right: 0;
+  position: absolute;
+  font-weight: 400;
+}
