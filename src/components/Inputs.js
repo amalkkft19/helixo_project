@@ -8,14 +8,25 @@ const Inputs = () => {
   return (
     <div>
       <form>
-        <TextField id="outlined-basic" label="Name" variant="outlined" />
-        <TextField id="outlined-basic" label="Email" variant="outlined" />
+        <TextField
+          id="outlined-basic"
+          label="Name"
+          variant="outlined"
+          name="name"
+        />
+        <TextField
+          id="outlined-basic"
+          label="Email"
+          variant="outlined"
+          name="email"
+        />
         <TextField
           id="outlined-basic"
           label="Phone Number"
           variant="outlined"
+          name="phone"
         />
-        <Button className="btn_add" variant="contained">
+        <Button className="btn_add" variant="contained" type="submit">
           ADD
         </Button>
       </form>

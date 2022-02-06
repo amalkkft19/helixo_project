@@ -1,0 +1,28 @@
+.table_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th,
+td {
+  border: 1px solid #ffffff;
+  text-align: left;
+  padding: 8px;
+  font-size: 24px;
+}
+th {
+  background-color: rgb(23, 33, 39);
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+td {
+  background-color: rgb(233, 233, 233);
+}
