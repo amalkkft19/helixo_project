@@ -1,37 +1,35 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import "./Input.css";
+import { TextField } from "@mui/material";
 
-const Inputs = () => {
+const EditingRow = () => {
   return (
-    <div>
-      <form>
+    <tr>
+      <td>
         <TextField
           id="outlined-basic"
           label="Name"
           variant="outlined"
           name="name"
         />
+      </td>
+      <td>
         <TextField
           id="outlined-basic"
           label="Email"
           variant="outlined"
           name="email"
         />
+      </td>
+      <td>
         <TextField
           id="outlined-basic"
           label="Phone Number"
           variant="outlined"
           name="phone"
         />
-        <Button className="btn_add" variant="contained" type="submit">
-          ADD
-        </Button>
-      </form>
-    </div>
+      </td>
+    </tr>
   );
 };
 
-export default Inputs;
+export default EditingRow;
