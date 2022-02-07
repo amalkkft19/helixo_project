@@ -16,6 +16,14 @@ const Table = () => {
     phone: "",
   });
 
+  const [editDataId, setEditiDataId] = useState(null);
+
+  const [editFormData, setEditFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+
   //******************fetching data***************************/////////////
   useEffect(() => {
     axios
@@ -36,7 +44,19 @@ const Table = () => {
     const newFormData = { ...formInput };
     newFormData[fieldName] = fieldValue;
     setFormInput(newFormData);
-    // console.log(newFormData);
+    console.log(newFormData);
+  };
+
+  // *****************************handling edited form*************************************
+
+  const handleEditFormChange = (event) => {
+    event.preventDefault();
+    const fieldName = event.target.getAttribute("name");
+    const fieldValue = event.target.value;
+    const newFormData = { ...editFormData };
+    newFormData[fieldName] = fieldValue;
+    setEditFormData(newFormData);
+    console.log(newFormData);
   };
 
   // *********************Adding form*************************************
@@ -51,6 +71,57 @@ const Table = () => {
     };
 
     const newDatas = [...datas, newData];
+    setDatas(newDatas);
+  };
+
+  //**************************Submitting edited file************************** */
+
+  const onEditFormSubmit = (event) => {
+    event.preventDefault();
+    const editedData = {
+      id: Date.now(),
+      name: editFormData.name,
+      email: editFormData.email,
+      phone: editFormData.phone,
+    };
+    // console.log(editedData);
+
+    const newDatas = [...datas];
+
+    const index = datas.findIndex((data) => data.id === editDataId);
+
+    newDatas[index] = editedData;
+    setDatas(newDatas);
+    setEditiDataId(null);
+  };
+
+  // ***********************Handling edit click**********************
+
+  const handleEditClick = (event, data) => {
+    event.preventDefault();
+    setEditiDataId(data.id);
+    // console.log(data.id);
+
+    const formValues = {
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+    };
+    setEditFormData(formValues);
+  };
+
+  //*************Handling cancel button */
+
+  const handleCancelClick = () => {
+    setEditiDataId(null);
+  };
+
+  //**************Handling delete button */
+
+  const handleDeleteClick = (dataId) => {
+    const newDatas = [...datas];
+    const index = datas.findIndex((data) => data.id === dataId);
+    newDatas.splice(index, 1);
     setDatas(newDatas);
   };
 
@@ -82,13 +153,14 @@ const Table = () => {
           ADD
         </Button>
       </form>
-      <form>
+      <form onSubmit={onEditFormSubmit}>
         <table>
           <thead>
             <tr>
               <th>Name</th>
               <th>Email</th>
               <th>Phone Number</th>
+              <th>Actions</th>
             </tr>
           </thead>
 
@@ -97,8 +169,19 @@ const Table = () => {
               // console.log(data);
               return (
                 <Fragment>
-                  <EditingRow />
-                  <ReadOnlyRow data={data} />
+                  {editDataId === data.id ? (
+                    <EditingRow
+                      editFormData={editFormData}
+                      handleEditFormChange={handleEditFormChange}
+                      handleCancelClick={handleCancelClick}
+                    />
+                  ) : (
+                    <ReadOnlyRow
+                      data={data}
+                      handleEditClick={handleEditClick}
+                      handleDeleteClick={handleDeleteClick}
+                    />
+                  )}
                 </Fragment>
               );
             })}
