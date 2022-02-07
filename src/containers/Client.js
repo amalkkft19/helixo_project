@@ -3,11 +3,15 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import Table from "../components/Table";
 
+import { UserTypeProvider } from "../components/context/UserType";
+
 const Client = () => {
   return (
     <div>
-      <NavBar />
-      <Table />
+      <UserTypeProvider value={{ user: "ADMIN_USER" }}>
+        <NavBar />
+        <Table />
+      </UserTypeProvider>
     </div>
   );
 };

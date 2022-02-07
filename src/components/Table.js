@@ -6,6 +6,9 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import ReadOnlyRow from "./ReadOnlyRow";
 import EditingRow from "./EditingRow";
+import Loader from "./Loader";
+import { useContext } from "react";
+import UserTypeContext from "./context/UserType";
 
 const Table = () => {
   //***********useStates **************//////////////////////
@@ -24,6 +27,8 @@ const Table = () => {
     phone: "",
   });
 
+  const [isloading, setLoading] = useState(true); //to add loader component
+
   //******************fetching data***************************/////////////
   useEffect(() => {
     axios
@@ -31,6 +36,7 @@ const Table = () => {
       .then((response) => {
         // console.log(response);
         setDatas(response.data);
+        setLoading(false);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -125,7 +131,12 @@ const Table = () => {
     setDatas(newDatas);
   };
 
-  return (
+  // ***********context hook******
+  const userType = useContext(UserTypeContext);
+
+  return isloading ? (
+    <Loader />
+  ) : (
     <div className="table_container">
       <form onSubmit={onFormSubmit}>
         <TextField
@@ -160,7 +171,7 @@ const Table = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Phone Number</th>
-              <th>Actions</th>
+              {userType.user === "ADMIN_USER" && <th>Actions</th>}
             </tr>
           </thead>
 
@@ -177,6 +188,7 @@ const Table = () => {
                     />
                   ) : (
                     <ReadOnlyRow
+                      userType={userType.user}
                       data={data}
                       handleEditClick={handleEditClick}
                       handleDeleteClick={handleDeleteClick}
