@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./NavBar.css";
+
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
@@ -16,16 +16,26 @@ const useStyles = makeStyles({
 
     boxShadow: " 0 2px 4px 0 rgba(0, 0, 0, 0.2)",
   },
+  nav_id: {
+    marginRight: "40px",
+    fontWeight: "500",
+    fontSize: "16px",
+    fontFamily: "Roboto",
+    cursor: "pointer",
+    color: " rgb(33, 33, 34)",
+    textDecoration: " none",
+    "&:hover": { color: "rgb(116, 32, 67)" },
+  },
 });
 
 const NavBar = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.navbar}>
-      <Link className="nav_id" to="/">
+      <Link className={classes.nav_id} to="/">
         Home
       </Link>
-      <Link className="nav_id" to="/clients">
+      <Link className={classes.nav_id} to="/clients">
         Client
       </Link>
     </div>
