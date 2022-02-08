@@ -175,10 +175,10 @@ const Table = () => {
           </thead>
 
           <tbody>
-            {datas.map((data) => {
+            {datas.map((data, index) => {
               // console.log(data);
               return (
-                <Fragment>
+                <Fragment key={index}>
                   {editDataId === data.id ? (
                     <EditingRow
                       editFormData={editFormData}
