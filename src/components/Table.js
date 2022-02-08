@@ -137,7 +137,7 @@ const Table = () => {
     <Loader />
   ) : (
     <div className="table_container">
-      <form onSubmit={onFormSubmit}>
+      <form className="form_input" onSubmit={onFormSubmit}>
         <TextField
           onChange={onHandleFormChange}
           id="outlined-basic"

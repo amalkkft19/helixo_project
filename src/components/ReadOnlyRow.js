@@ -27,7 +27,7 @@ const ReadOnlyRow = ({
   };
 
   return (
-    <tr>
+    <tr key={data.id}>
       <td>{data.name}</td>
       <td>{data.email}</td>
       <td>{data.phone}</td>

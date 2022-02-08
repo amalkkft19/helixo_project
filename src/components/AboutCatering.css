@@ -52,3 +52,46 @@ p {
 .para_two {
   color: #424242;
 }
+
+/* media queries */
+
+@media screen and (max-width: 760px) {
+  .text_container {
+    max-width: 325px;
+  }
+  p {
+    font-size: 10px;
+  }
+  h1 {
+    letter-spacing: 1.2px;
+
+    font-size: 22px;
+  }
+  h4 {
+    letter-spacing: 1.1px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 16px;
+  }
+
+  .img_catering {
+    height: 325px;
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img_catering {
+    height: 275px;
+    width: 270px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+  }
+}

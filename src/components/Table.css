@@ -46,3 +46,66 @@ th {
 td {
   background-color: rgb(233, 233, 233);
 }
+
+/* media queries */
+@media screen and (max-width: 430px) {
+  .form_input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 15px;
+  }
+
+  .btn_add {
+    width: 150px;
+  }
+  #outlined-basic {
+    height: 15px;
+    width: 200px;
+  }
+
+  td {
+    font-size: 16px;
+  }
+  th {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .form_input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 15px;
+  }
+  .btn_add {
+    width: 350px;
+  }
+
+  #outlined-basic {
+    height: 15px;
+    width: 350px;
+  }
+
+  thead,
+  tbody,
+  tr {
+    display: flex;
+    flex-direction: column;
+  }
+  td {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+  }
+  th {
+    font-weight: 500;
+    font-size: 18px;
+  }
+  tbody {
+    row-gap: 10px;
+  }
+}
