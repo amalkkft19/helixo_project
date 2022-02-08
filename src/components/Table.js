@@ -1,18 +1,17 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import "./Table.css";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import ReadOnlyRow from "./ReadOnlyRow";
 import EditingRow from "./EditingRow";
 import Loader from "./Loader";
-import { useContext } from "react";
 import UserTypeContext from "./context/UserType";
 
+import "./Table.css";
+
 const Table = () => {
-  //***********useStates **************//////////////////////
-  const [datas, setDatas] = useState([]);
+  //***********useStates **************
+  const [datas, setDatas] = useState([]); // state for table datas and updating datas inside table
   const [formInput, setFormInput] = useState({
     name: "",
     email: "",
@@ -101,7 +100,7 @@ const Table = () => {
     setEditiDataId(null);
   };
 
-  // ***********************Handling edit click**********************
+  // ***********************Handling edit button click**********************
 
   const handleEditClick = (event, data) => {
     event.preventDefault();
@@ -134,7 +133,7 @@ const Table = () => {
   // ***********context hook******
   const userType = useContext(UserTypeContext);
 
-  return isloading ? (
+  return isloading ? ( // Checkif if is loading
     <Loader />
   ) : (
     <div className="table_container">
