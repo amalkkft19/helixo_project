@@ -11,9 +11,6 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
-.navbar button {
-  display: none;
-}
 .nav_id {
   margin-right: 40px;
   font-weight: 500;
@@ -25,10 +22,4 @@
 }
 .nav_id:hover {
   color: rgb(116, 32, 67);
-}
-
-@media screen and (max-width: 430px) {
-  button {
-    display: flex;
-  }
 }
